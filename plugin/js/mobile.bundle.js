@@ -1,0 +1,1 @@
+kintone.$PLUGIN_ID;

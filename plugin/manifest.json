@@ -1,0 +1,30 @@
+{
+  "manifest_version": 1,
+  "version": "1.0.0",
+  "type": "APP",
+  "name": {
+    "ja": "動的切替ドロップダウン-プラグイン",
+    "en": "DynamicSwitchingDropdown Plug-in",
+    "zh": "动态开关下拉菜单"
+  },
+  "description": {
+    "ja": "ドロップダウンの値を動的に切り替えるプラグインです",
+    "en": "It is a plugin that dynamically switches the value of the drop-down",
+    "zh": "它是一个动态切换下拉列表值的插件"
+  },
+  "icon": "image/link.png",
+  "homepage_url": {},
+  "desktop": {
+    "js": ["js/desktop.bundle.js"],
+    "css": []
+  },
+  "mobile": {
+    "js": [],
+    "css": []
+  },
+  "config": {
+    "html": "html/config.html",
+    "js": ["js/kintone-config-helper.js", "js/config.bundle.js"],
+    "css": ["css/normalize.css", "css/51-modern-default.css", "js/config.css", "https://js.cybozu.com/font-awesome/v4.7.0/css/font-awesome.min.css"]
+  }
+}
