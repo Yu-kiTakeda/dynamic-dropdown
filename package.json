@@ -9,7 +9,7 @@
     "live-dev": "webpack-dev-server --mode=development --https --open",
     "build": "webpack --mode production",
     "first-packaging": "kintone-plugin-packer --out dist/plugin.zip ./plugin/",
-    "upload": "kintone-plugin-uploader --username takeda --password yu950501 --base-url https://fistbump-demo.cybozu.com dist/plugin.1.0.0.zip"
+    "upload": "kintone-plugin-uploader --username xxxx --password xxxx --base-url https://xxxx.cybozu.com dist/plugin.1.0.0.zip"
   },
   "keywords": [],
   "author": "",
