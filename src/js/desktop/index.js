@@ -23,7 +23,7 @@ import { Dropdown } from "kintone-ui-component/lib/dropdown";
     const eTypeLastWord = event.type.substring(event.type.lastIndexOf('.') + 1);
 
     if(eTypeLastWord === 'show') {
-      dropdowns = options.map(option => {
+      dropdowns = options.filter(option => kintone.app.record.getSpaceElement(option.putSpaceId) && record[option.field_from] && record[option.field_target.code]).map(option => {
         let dropdown = new Dropdown({items: [], className: 'kuc_dDown', label: option.field_target.label, selectedIndex: 0});
         dropdown = Object.assign(dropdown, {
           target_fieldCode: option.field_target.code,

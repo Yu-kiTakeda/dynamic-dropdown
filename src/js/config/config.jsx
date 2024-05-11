@@ -29,7 +29,6 @@ const theme = createTheme({
     }
   }
 });
-console.log(theme.typography);
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',  
   padding: theme.spacing(1),
@@ -174,8 +173,7 @@ export default function Config({pluginId}) {
     <ThemeProvider theme={theme}>
       <Container>
         <Typography variant="h1" fontSize={20} id="plugin-title">動的切替ドロップダウン-プラグイン</Typography>
-        <Stack spacing={1}>
-          {console.log(options.length)}
+        <Stack spacing={1}>          
           {          
             options.map((opt, optIndex) => {
               return (
