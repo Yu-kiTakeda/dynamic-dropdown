@@ -116,9 +116,9 @@ export default function Config({pluginId}) {
     setOptions(newOptions);
   }
 
-  const hundleChangeDynamicItems = (value, index, dynamicIndex) => {
+  const hundleChangeDynamicItems = (values, index, dynamicIndex) => {
     const newOptions = [...options];
-    newOptions[index].dynamicItems[dynamicIndex].valuesField_target = value;   
+    newOptions[index].dynamicItems[dynamicIndex].valuesField_target = dropdownFields.findIndex(field => field.code === options[index].field_target.code) >= 0 ? values.filter((value) => Object.keys(dropdownFields[dropdownFields.findIndex(field => field.code === options[index].field_target.code)].options).map((key) => dropdownFields[dropdownFields.findIndex(field => field.code === options[index].field_target.code)].options[key]).findIndex(option => option.label === value) >= 0) : [];   
     setOptions(newOptions);
   }
 

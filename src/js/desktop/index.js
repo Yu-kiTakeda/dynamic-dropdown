@@ -22,8 +22,9 @@ import { Dropdown } from "kintone-ui-component/lib/dropdown";
     //イベントタイプのラストワード
     const eTypeLastWord = event.type.substring(event.type.lastIndexOf('.') + 1);
 
-    if(eTypeLastWord === 'show') {
+    if(eTypeLastWord === 'show') {      
       dropdowns = options.filter(option => kintone.app.record.getSpaceElement(option.putSpaceId) && record[option.field_from] && record[option.field_target.code]).map(option => {
+        console.log(option.dynamicItems);
         let dropdown = new Dropdown({items: [], className: 'kuc_dDown', label: option.field_target.label, selectedIndex: 0});
         dropdown = Object.assign(dropdown, {
           target_fieldCode: option.field_target.code,
@@ -51,10 +52,11 @@ import { Dropdown } from "kintone-ui-component/lib/dropdown";
       });
     } else {
       dropdowns.forEach(function(dropdown) {
-        if(dropdown.from_fieldCode === eTypeLastWord) {
+        if(dropdown.from_fieldCode === eTypeLastWord) {          
           removeDropdownItems(event, dropdown);
           setDropdownItems(event, dropdown);
-          event.record[dropdown.target_fieldCode].value = dropdown.items[0].value;
+          console.log(dropdown.itemList);
+          event.record[dropdown.target_fieldCode].value = dropdown.value;
         }
       });
     }
@@ -70,7 +72,10 @@ import { Dropdown } from "kintone-ui-component/lib/dropdown";
         dropdown.items.push({label: prefecture, value: prefecture});
       });      
     }
-    dropdown.value = dropdown.items[0].value;    
+    dropdown.value = dropdown.items[0].value;
+    // 既存の値が切替後の選択肢に存在すれば値をセットする
+    if(event.record[dropdown.target_fieldCode].value && dropdown.items.findIndex(opt => opt.value === event.record[dropdown.target_fieldCode].value) >= 0)
+      dropdown.value = event.record[dropdown.target_fieldCode].value;
   }
 
   function removeDropdownItems(event, dropdown) {        
