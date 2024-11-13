@@ -193,7 +193,7 @@ export default function Config({pluginId}) {
                       <Typography variant="h2" fontSize={15} className="input-title">切替元フィールド<span className="kintoneplugin-require">*</span></Typography>
                       <Autocomplete
                         options={dropdownFields.map(({label, code}) => ({label, code}))}
-                        getOptionDisabled={option => options.findIndex((findOpt, findIndex) => optIndex !== findIndex && findOpt.field_from === option.code || findOpt.field_target.code === option.code) >= 0}
+                        getOptionDisabled={option => options.findIndex((findOpt, findIndex) => optIndex !== findIndex && findOpt.field_target.code === option.code) >= 0}
                         isOptionEqualToValue={(option, value) => option.code === value.code}
                         renderOption={(props, option) => (
                           <Box component="li" {...props} key={option.code}>
